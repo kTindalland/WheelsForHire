@@ -27,8 +27,8 @@ namespace WheelsForHire.ViewModels
 
             set
             {
-                RaisePropertyChanged();
                 _allEquipment = value;
+                RaisePropertyChanged();
             }
         }
 
@@ -41,10 +41,49 @@ namespace WheelsForHire.ViewModels
             }
             set
             {
-                RaisePropertyChanged();
                 _selectedEquiptmentId = value;
+                RaisePropertyChanged();
             }
         }
+
+        private string _stockToAdd;
+
+        public string StockToAdd
+        {
+            get { return _stockToAdd; }
+            set 
+            {
+                _stockToAdd = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _newEquipmentName;
+
+        public string NewEquipmentName
+        {
+            get { return _newEquipmentName; }
+            set 
+            {
+                _newEquipmentName = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _newEquipmentPrice;
+
+        public string NewEquipmentPrice
+        {
+            get { return _newEquipmentPrice; }
+            set 
+            {
+                _newEquipmentPrice = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
+
 
         public ICommand BackCommand { get; set; }
         public ICommand AddStockCommand { get; set; }
@@ -71,12 +110,41 @@ namespace WheelsForHire.ViewModels
         private void AddStock()
         {
             // do checks
+            int newStock;
+            var newStockValid = int.TryParse(StockToAdd, out newStock);
 
+            if (!newStockValid) return;
+
+            if (SelectedEquipmentId == -1) return;
+
+
+            // get equipment
+            _context.Equipment_tbl.First(r => r.Id == SelectedEquipmentId).Stock += newStock;
+
+            StockToAdd = "";
+
+            _context.SaveChanges();
         }
 
         private void NewEquipment()
         {
+            // do checks
+            decimal price;
+            var priceValid = decimal.TryParse(NewEquipmentPrice, out price);
 
+            _context.Equipment_tbl.Add(new Equipment()
+            {
+                Name = NewEquipmentName,
+                Price = price,
+                Stock = 0
+            });
+
+            NewEquipmentName = "";
+            NewEquipmentPrice = "";
+
+            _context.SaveChanges();
+
+            AllEquipment = new ObservableCollection<Equipment>(_context.Equipment_tbl.Where(r => r.Id > -1).ToList());
         }
     }
 }

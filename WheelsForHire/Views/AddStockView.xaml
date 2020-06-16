@@ -18,7 +18,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button VerticalAlignment="Top">Back</Button>
+        <Button VerticalAlignment="Top" Command="{Binding BackCommand}">Back</Button>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
             <Label>Select Equipment</Label>
             <ComboBox
@@ -35,20 +35,20 @@
 
                 <Label FontSize="20" FontStyle="Italic">New Equipment Form</Label>
                 <Label>Name</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding NewEquipmentName}"></TextBox>
                 <Label>Price</Label>
-                <TextBox></TextBox>
-                <Button Margin="20">Create new equipment</Button>
+                <TextBox Text="{Binding NewEquipmentPrice}"></TextBox>
+                <Button Margin="20" Command="{Binding NewEquipmentCommand}">Create new equipment</Button>
                 
             </StackPanel>
         </md:Card>
 
         <StackPanel Orientation="Vertical" Grid.Row="1">
             <Label>Enter amount to add</Label>
-            <TextBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch"/>
+            <TextBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" Text="{Binding StockToAdd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
 
-        <Button Grid.Column="1" Grid.Row="1" Margin="10">Add Stock</Button>
+        <Button Grid.Column="1" Grid.Row="1" Margin="10" Command="{Binding AddStockCommand}">Add Stock</Button>
 
     </Grid>
 </UserControl>
