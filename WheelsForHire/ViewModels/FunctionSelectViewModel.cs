@@ -13,17 +13,24 @@ namespace WheelsForHire.ViewModels
         private readonly IRegionManager _regionManager;
 
         public ICommand BackToSplashCommand { get; set; }
+        public ICommand AddStockCommand { get; set; }
 
         public FunctionSelectViewModel(IRegionManager regionManager)
         {
             _regionManager = regionManager;
 
             BackToSplashCommand = new DelegateCommand(BackToSplash);
+            AddStockCommand = new DelegateCommand(AddStock);
         }
 
         private void BackToSplash()
         {
             _regionManager.RequestNavigate("MainRegion", "Home");
+        }
+
+        private void AddStock()
+        {
+            _regionManager.RequestNavigate("MainRegion", "AddStock");
         }
     }
 

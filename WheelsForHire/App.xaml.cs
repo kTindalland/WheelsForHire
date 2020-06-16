@@ -26,6 +26,7 @@ namespace WheelsForHire
 
             containerRegistry.RegisterForNavigation<HomeView>("Home");
             containerRegistry.RegisterForNavigation<FunctionSelectView>("FunctionSelect");
+            containerRegistry.RegisterForNavigation<AddStockView>("AddStock");
         }
 
         protected override Window CreateShell()
