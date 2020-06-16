@@ -10,6 +10,6 @@
     <Grid>
         <Image Source="C:/Users/kaiti/source/repos/WheelsForHire/assets/Splashscreen.png" Stretch="UniformToFill"></Image>
 
-        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">Enter Application</Button>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Command="{Binding EnterApplicationCommand}">Enter Application</Button>
     </Grid>
 </UserControl>
