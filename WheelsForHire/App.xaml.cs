@@ -1,4 +1,6 @@
 ﻿using CommonServiceLocator;
+using Database;
+using Microsoft.EntityFrameworkCore;
 using Prism.Ioc;
 using Prism.Unity;
 using System;
@@ -20,8 +22,10 @@ namespace WheelsForHire
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<HomeView>();
+            containerRegistry.Register<WheelsContext, WheelsContext>();
 
+            containerRegistry.RegisterForNavigation<HomeView>("Home");
+            containerRegistry.RegisterForNavigation<FunctionSelectView>("FunctionSelect");
         }
 
         protected override Window CreateShell()
