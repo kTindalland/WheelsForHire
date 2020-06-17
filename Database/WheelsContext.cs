@@ -16,6 +16,7 @@ namespace Database
         public DbSet<Sale> Sales_tbl { get; set; }
         public DbSet<Vehicle> Vehicles_tbl { get; set; }
         public DbSet<VehicleType> VehicleTypes_tbl { get; set; }
+        public DbSet<DamageDeposit> DamageDeposits_tbl { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

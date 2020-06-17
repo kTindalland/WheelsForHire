@@ -11,6 +11,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using WheelsForHire.Views;
+using WheelsForHire.Interfaces;
+using WheelsForHire.Services;
 
 namespace WheelsForHire
 {
@@ -24,8 +26,12 @@ namespace WheelsForHire
         {
             containerRegistry.Register<WheelsContext, WheelsContext>();
 
+            containerRegistry.Register<IVehicleAvailabilityService, MockVehicleAvailabilityService>();
+            containerRegistry.Register<IVehiclePriceCalculatorService, MockCalculator>();
+
             containerRegistry.RegisterForNavigation<HomeView>("Home");
             containerRegistry.RegisterForNavigation<FunctionSelectView>("FunctionSelect");
+            containerRegistry.RegisterForNavigation<NewBookingView>("NewBooking");
         }
 
         protected override Window CreateShell()

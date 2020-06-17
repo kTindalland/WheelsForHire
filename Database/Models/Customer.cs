@@ -12,7 +12,7 @@ namespace Database.Models
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string Postcode { get; set; }
-        public int ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
 
     }
 }
