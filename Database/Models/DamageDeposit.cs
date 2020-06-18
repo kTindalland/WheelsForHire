@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class DamageDeposit
+    public class DamageDeposit : Entity
     {
-        public int Id { get; set; }
         public decimal Price { get; set; }
         public bool Paid { get; set; }
         public bool Refunded { get; set; }

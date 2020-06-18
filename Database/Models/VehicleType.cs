@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class VehicleType
+    public class VehicleType : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public decimal DailyCharge { get; set; }
         public decimal WeeklyCharge { get; set; }

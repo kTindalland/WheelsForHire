@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class Vehicle
+    public class Vehicle : Entity
     {
-        public int Id { get; set; }
         public int VehicleTypeId { get; set; }
         public string Registration { get; set; }
     }

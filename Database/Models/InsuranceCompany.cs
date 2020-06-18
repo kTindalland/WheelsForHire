@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class InsuranceCompany
+    public class InsuranceCompany : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int ContactNumber { get; set; }
     }

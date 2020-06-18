@@ -4,11 +4,15 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class Equipment
+    public class Equipment : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id : {Id}, Name : {Name}, Price : {Price:C2}, Stock left : {Stock}";
+        }
     }
 }

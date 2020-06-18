@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class Sale
+    public class Sale : Entity
     {
-        public int Id { get; set; }
         public int EquipmentId { get; set; }
         public int CustomerId { get; set; }
         public int Quantity { get; set; }

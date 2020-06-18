@@ -24,7 +24,7 @@
 
         <Button Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100">View Tables</Button>
 
-        <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100">Ad-hoc Queries</Button>
+        <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToAdHocCommand}">Ad-hoc Queries</Button>
 
         <Button Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100">Equipment Sale</Button>
 

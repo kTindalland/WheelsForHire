@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class Booking
+    public class Booking : Entity
     {
-        public int Id { get; set; }
         public int CustomerId { get; set; }
         public int VehicleId { get; set; }
         public DateTime StartDate { get; set; }
@@ -14,5 +13,10 @@ namespace Database.Models
         public decimal Price { get; set; }
         public decimal AmountPaid { get; set; }
         public int DamageDepositId { get; set; }
+
+        public override string ToString()
+        {
+            return $"BookingId:{Id}, CustomerId:{CustomerId}, VehicleId:{VehicleId}, StartDate:{StartDate.ToString()}, EndDate:{EndDate.ToString()}, Price:{Price:C2}, AmountPaid:{AmountPaid:C2}, DamageDepositId:{DamageDepositId}";
+        }
     }
 }

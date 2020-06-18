@@ -33,6 +33,7 @@ namespace WheelsForHire
             containerRegistry.RegisterForNavigation<FunctionSelectView>("FunctionSelect");
             containerRegistry.RegisterForNavigation<AddStockView>("AddStock");
             containerRegistry.RegisterForNavigation<NewBookingView>("NewBooking");
+            containerRegistry.RegisterForNavigation<AdHocView>("AdHoc");
         }
 
         protected override Window CreateShell()
