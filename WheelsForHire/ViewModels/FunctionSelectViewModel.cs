@@ -18,6 +18,7 @@ namespace WheelsForHire.ViewModels
         public ICommand ToNewBookingCommand { get; set; }
 
         public ICommand ToAdHocCommand { get; set; }
+        public ICommand ToNewSaleCommand { get; set; }
 
         public FunctionSelectViewModel(IRegionManager regionManager)
         {
@@ -27,6 +28,7 @@ namespace WheelsForHire.ViewModels
             AddStockCommand = new DelegateCommand(AddStock);
             ToNewBookingCommand = new DelegateCommand(ToNewBooking);
             ToAdHocCommand = new DelegateCommand(ToAdHoc);
+            ToNewSaleCommand = new DelegateCommand(ToNewSale);
         }
 
         private void ToAdHoc()
@@ -47,6 +49,11 @@ namespace WheelsForHire.ViewModels
         private void AddStock()
         {
             _regionManager.RequestNavigate("MainRegion", "AddStock");
+        }
+
+        private void ToNewSale()
+        {
+            _regionManager.RequestNavigate("MainRegion", "NewSale");
         }
     }
 
