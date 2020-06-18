@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using Database.Models;
 using Prism.Commands;
 using Prism.Regions;
+using Microsoft.Data.SqlClient;
 
 namespace WheelsForHire.ViewModels
 {
@@ -112,52 +113,67 @@ namespace WheelsForHire.ViewModels
 
         private void ExecuteQuery()
         {
-            List<Entity> result;
-
-            switch (SelectedTable)
+            try
             {
-                case "Bookings_tbl":
-                    result = _context.Bookings_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                List<Entity> result;
 
-                case "Customers_tbl":
-                    result = _context.Customers_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                switch (SelectedTable)
+                {
+                    case "Bookings_tbl":
+                        result = _context.Bookings_tbl.FromSqlRaw(QueryString).ToList<Entity>();
 
-                case "DamageDeposits_tbl":
-                    result = _context.DamageDeposits_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                        break;
 
-                case "Equipment_tbl":
-                    result = _context.Equipment_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                    case "Customers_tbl":
+                        result = _context.Customers_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
 
-                case "Insurance_tbl":
-                    result = _context.Insurance_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                    case "DamageDeposits_tbl":
+                        result = _context.DamageDeposits_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
 
-                case "InsuranceCompanies_tbl":
-                    result = _context.InsuranceCompanies_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                    case "Equipment_tbl":
+                        result = _context.Equipment_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
 
-                case "Sales_tbl":
-                    result = _context.Sales_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                    case "Insurance_tbl":
+                        result = _context.Insurance_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
 
-                case "Vehicles_tbl":
-                    result = _context.Vehicles_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                    case "InsuranceCompanies_tbl":
+                        result = _context.InsuranceCompanies_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
 
-                case "VehicleTypes_tbl":
-                    result = _context.VehicleTypes_tbl.FromSqlRaw(QueryString).ToList<Entity>();
-                    break;
+                    case "Sales_tbl":
+                        result = _context.Sales_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
 
-                default:
-                    result = new List<Entity>();
-                    break;
+                    case "Vehicles_tbl":
+                        result = _context.Vehicles_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
+
+                    case "VehicleTypes_tbl":
+                        result = _context.VehicleTypes_tbl.FromSqlRaw(QueryString).ToList<Entity>();
+                        break;
+
+                    default:
+                        result = new List<Entity>();
+                        break;
+                }
+
+                Results = new ObservableCollection<Entity>(result);
             }
+            catch (InvalidOperationException)
+            {
+                // Tries to update the db
 
-            Results = new ObservableCollection<Entity>(result);
+                _context.Database.ExecuteSqlCommand(QueryString);
+            }
+            catch (SqlException)
+            {
+
+            }
+            
         }
 
         private void ExecuteCommand()

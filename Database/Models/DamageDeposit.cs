@@ -9,5 +9,10 @@ namespace Database.Models
         public decimal Price { get; set; }
         public bool Paid { get; set; }
         public bool Refunded { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id:{Id}, Price:{Price:C2}, Paid:{Paid}, Refunded:{Refunded}";
+        }
     }
 }

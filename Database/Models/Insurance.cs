@@ -11,5 +11,7 @@ namespace Database.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Reference { get; set; }
+
+        
     }
 }
