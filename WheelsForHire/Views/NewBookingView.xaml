@@ -29,7 +29,8 @@
                 DisplayMemberPath="Name"
                 SelectedValuePath="Id"
                 SelectedValue="{Binding SelectedType}"
-                MinWidth="200" />
+                MinWidth="200" 
+                IsEditable="True" IsReadOnly="True" Text="Please Select"/>
             </StackPanel>
         </StackPanel>
 

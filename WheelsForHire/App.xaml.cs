@@ -27,7 +27,7 @@ namespace WheelsForHire
             containerRegistry.Register<WheelsContext, WheelsContext>();
 
             containerRegistry.Register<IVehicleAvailabilityService, MockVehicleAvailabilityService>();
-            containerRegistry.Register<IVehiclePriceCalculatorService, MockCalculator>();
+            containerRegistry.Register<IVehiclePriceCalculatorService, VehiclePriceCalculatorService>();
 
             containerRegistry.RegisterForNavigation<HomeView>("Home");
             containerRegistry.RegisterForNavigation<FunctionSelectView>("FunctionSelect");
