@@ -10,5 +10,10 @@ namespace Database.Models
         public int CustomerId { get; set; }
         public int Quantity { get; set; }
         public DateTime DateOfSale { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id:{Id}, EquipmentId:{EquipmentId}, CustomerId:{CustomerId}, Quantity:{Quantity}, DateOfSale:{DateOfSale}";
+        }
     }
 }

@@ -8,5 +8,10 @@ namespace Database.Models
     {
         public int VehicleTypeId { get; set; }
         public string Registration { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id:{Id}, VehicleTypeId:{VehicleTypeId}, Registration:{Registration}";
+        }
     }
 }

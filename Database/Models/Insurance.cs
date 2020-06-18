@@ -12,6 +12,9 @@ namespace Database.Models
         public DateTime EndDate { get; set; }
         public string Reference { get; set; }
 
-        
+        public override string ToString()
+        {
+            return $"Id:{Id}, InsuranceCompanyId:{InsuranceCompanyId}, StartDate:{StartDate}, EndDate:{EndDate}, Reference:{Reference}";
+        }
     }
 }
