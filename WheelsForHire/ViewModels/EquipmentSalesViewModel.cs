@@ -32,7 +32,7 @@ namespace WheelsForHire.ViewModels
         public int SelectedEquipment
         {
             get { return _equipment; }
-            set { _equipment = value; RaisePropertyChanged(); }
+            set { _equipment = value; RaisePropertyChanged(); UpdateStockRemaining(); }
         }
 
         private string _price;
@@ -72,6 +72,15 @@ namespace WheelsForHire.ViewModels
             set { _quantity = value; RaisePropertyChanged(); }
         }
 
+        private string _stockRemaining;
+
+        public string StockRemaining
+        {
+            get { return _stockRemaining; }
+            set { _stockRemaining = value; RaisePropertyChanged(); }
+        }
+
+
 
 
         public ICommand BackCommand { get; set; }
@@ -86,6 +95,9 @@ namespace WheelsForHire.ViewModels
 
             BackCommand = new DelegateCommand(Back);
             MakeSaleCommand = new DelegateCommand(MakeSale);
+
+            EquipmentList = new ObservableCollection<Equipment>(context.Equipment_tbl.ToList());
+            UpdateStockRemaining();
         }
 
         private void Back()
@@ -120,6 +132,11 @@ namespace WheelsForHire.ViewModels
 
             if (!equipmentExists) return;
 
+            // Check theres enough in stock
+            var enoughStock = _context.Equipment_tbl.First(r => r.Id == SelectedEquipment).Stock >= quantity;
+
+            if (!enoughStock) return;
+
             // All valid, make the sale
             var newSale = new Sale()
             {
@@ -130,7 +147,14 @@ namespace WheelsForHire.ViewModels
             };
 
             _context.Sales_tbl.Add(newSale);
+
+            _context.Equipment_tbl.First(r => r.Id == SelectedEquipment).Stock -= quantity;
+
             _context.SaveChanges();
+
+            Quantity = "";
+
+            UpdateStockRemaining();
         }
 
         private void UpdateDetails()
@@ -162,6 +186,23 @@ namespace WheelsForHire.ViewModels
             // Populate fields
             CustomerName = $"{user.FirstName} {user.Surname}";
             CustomerAddress = $"{user.AddressLine1} {user.AddressLine2}";
+        }
+
+        private void UpdateStockRemaining()
+        {
+            // Validate the equipment
+            var equipmentValid = _context.Equipment_tbl.Any(r => r.Id == SelectedEquipment);
+
+            if (!equipmentValid)
+            {
+                StockRemaining = "Stock Remaining: ";
+                return;
+            }
+
+            // Get stock
+            var stockLeft = _context.Equipment_tbl.First(r => r.Id == SelectedEquipment).Stock;
+
+            StockRemaining = $"Stock Remaining: {stockLeft}";
         }
     }
 }

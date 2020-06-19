@@ -41,6 +41,7 @@
                     SelectedValue="{Binding SelectedEquipment}"
                     IsEditable="True" IsReadOnly="True" Text="Please Select"
                     MinWidth="200" />
+                <Label Content="{Binding StockRemaining}"/>
             </StackPanel>
 
             
@@ -53,7 +54,7 @@
 
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Content="{Binding Price}" />
 
-        <Button Grid.Row="3" MaxWidth="300" MinHeight="100" FontSize="40" Command="{Binding MakeSalesCommand}">Make Sale</Button>
+        <Button Grid.Row="3" MaxWidth="300" MinHeight="100" FontSize="40" Command="{Binding MakeSaleCommand}">Make Sale</Button>
         
     </Grid>
 </UserControl>
