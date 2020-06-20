@@ -19,6 +19,7 @@ namespace WheelsForHire.ViewModels
 
         public ICommand ToAdHocCommand { get; set; }
         public ICommand ToNewSaleCommand { get; set; }
+        public ICommand ToInsuranceCommand { get; set; }
 
         public FunctionSelectViewModel(IRegionManager regionManager)
         {
@@ -29,6 +30,12 @@ namespace WheelsForHire.ViewModels
             ToNewBookingCommand = new DelegateCommand(ToNewBooking);
             ToAdHocCommand = new DelegateCommand(ToAdHoc);
             ToNewSaleCommand = new DelegateCommand(ToNewSale);
+            ToInsuranceCommand = new DelegateCommand(ToInsurance);
+        }
+
+        private void ToInsurance()
+        {
+            _regionManager.RequestNavigate("MainRegion", "Insurance");
         }
 
         private void ToAdHoc()

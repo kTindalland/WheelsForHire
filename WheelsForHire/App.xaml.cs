@@ -35,6 +35,8 @@ namespace WheelsForHire
             containerRegistry.RegisterForNavigation<NewBookingView>("NewBooking");
             containerRegistry.RegisterForNavigation<AdHocView>("AdHoc");
             containerRegistry.RegisterForNavigation<EquipmentSalesView>("NewSale");
+            containerRegistry.RegisterForNavigation<InsuranceView>("Insurance");
+            containerRegistry.RegisterForNavigation<UsersPoliciesView>("UserPolicy");
         }
 
         protected override Window CreateShell()

@@ -15,11 +15,11 @@ using WheelsForHire.ViewModels;
 namespace WheelsForHire.Views
 {
     /// <summary>
-    /// Interaction logic for InsuranceView.xaml
+    /// Interaction logic for UsersPoliciesView.xaml
     /// </summary>
-    public partial class InsuranceView : UserControl
+    public partial class UsersPoliciesView : UserControl
     {
-        public InsuranceView(InsuranceViewModel viewmodel)
+        public UsersPoliciesView(UsersPolicyViewModel viewmodel)
         {
             DataContext = viewmodel;
             InitializeComponent();

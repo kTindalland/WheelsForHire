@@ -7,7 +7,7 @@ namespace Database.Models
     public class InsuranceCompany : Entity
     {
         public string Name { get; set; }
-        public int ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
 
         public override string ToString()
         {

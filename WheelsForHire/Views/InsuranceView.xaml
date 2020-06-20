@@ -52,11 +52,11 @@
             <StackPanel Orientation="Vertical" MinWidth="150">
                 <Label>Reference Number</Label>
                 <TextBox Text="{Binding ReferenceNumber}" />
-                <Button Command="{Binding CreatePolicy}">Create Policy</Button>
+                <Button Command="{Binding CreatePolicyCommand}">Create Policy</Button>
             </StackPanel>
         </StackPanel>
 
-        <Button Grid.Row="2" Command="{Binding NavToViewPolicies}" MaxWidth="200">View Users' Policies</Button>
+        <Button Grid.Row="2" Command="{Binding NavToViewPoliciesCommand}" MaxWidth="200">View Users' Policies</Button>
         
     </Grid>
 </UserControl>
