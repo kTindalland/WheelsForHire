@@ -13,7 +13,6 @@ namespace WheelsForHire.Models
     public class DamageDepositModel
     {
         private readonly WheelsContext _context;
-        private readonly IRegionManager _regionManager;
 
         public string DamageDepositId { get; set; }
         public string CustomerId { get; set; }
@@ -26,8 +25,7 @@ namespace WheelsForHire.Models
         public ICommand RefundCommand { get; set; }
 
         public DamageDepositModel(
-            WheelsContext context,
-            IRegionManager regionManager)
+            WheelsContext context)
         {
             _context = context;
             _regionManager = regionManager;
