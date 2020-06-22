@@ -28,7 +28,7 @@
 
         <Button Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToNewSaleCommand}">Equipment Sale</Button>
 
-        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100">Manage Deposits</Button>
+        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToDamageDepositCommand}">Manage Deposits</Button>
 
         <Button Grid.Row="3" Height="100" Margin="10" FontSize="40" Command="{Binding BackToSplashCommand}">Back to splash</Button>
 

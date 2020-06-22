@@ -8,7 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition Height="30"/>
             <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,6 +19,7 @@
 
         <Button Command="{Binding BackCommand}" HorizontalAlignment="Left" VerticalAlignment="Top">Back</Button>
 
+                
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <StackPanel Orientation="Vertical" MinWidth="150">
                 <Label>Customer Id</Label>
@@ -31,10 +33,31 @@
             <Button Command="{Binding ShowNotRefundedCommand}">Show not refunded</Button>
         </StackPanel>
 
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Records}">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                            <ColumnDefinition/> <!--Deposit Id-->
+                            <ColumnDefinition/> <!--Customer Id-->
+                            <ColumnDefinition/> <!--Customer Name-->
+                            <ColumnDefinition/> <!-- Amount -->
+                            <ColumnDefinition/> <!-- Paid? -->
+                            <ColumnDefinition/> <!-- Refunded? -->
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="DepositId" />
+            <Label Grid.Column="1" Content="CustomerId" />
+            <Label Grid.Column="2" Content="CustomerName"/>
+            <Label Grid.Column="3" Content="Amount" />
+            <Label Grid.Column="4" Content="Paid?" />
+            <Label Grid.Column="5" Content="Refunded?" />
+
+
+        </Grid>
+
+        
+        <ListBox Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Records}" Width="800">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Width="800">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/> <!--Deposit Id-->
                             <ColumnDefinition/> <!--Customer Id-->
@@ -44,7 +67,7 @@
                             <ColumnDefinition/> <!-- Refunded? -->
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="0" Content="{Binding DepositId}" />
+                        <Label Grid.Column="0" Content="{Binding DamageDepositId}" />
                         <Label Grid.Column="1" Content="{Binding CustomerId}" />
                         <Label Grid.Column="2" Content="{Binding CustomerName}"/>
                         <Label Grid.Column="3" Content="{Binding Amount}" />

@@ -28,8 +28,6 @@ namespace WheelsForHire.Models
             WheelsContext context)
         {
             _context = context;
-            _regionManager = regionManager;
-
             PayDepositCommand = new DelegateCommand(PayDeposit);
             RefundCommand = new DelegateCommand(Refund);
         }

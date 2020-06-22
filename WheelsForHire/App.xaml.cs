@@ -13,6 +13,7 @@ using System.Windows;
 using WheelsForHire.Views;
 using WheelsForHire.Interfaces;
 using WheelsForHire.Services;
+using WheelsForHire.Factories;
 
 namespace WheelsForHire
 {
@@ -28,6 +29,7 @@ namespace WheelsForHire
 
             containerRegistry.Register<IVehicleAvailabilityService, VehicleAvailabilityService>();
             containerRegistry.Register<IVehiclePriceCalculatorService, VehiclePriceCalculatorService>();
+            containerRegistry.Register<IDamageDepositModelFactory, DamageDepositModelFactory>();
 
             containerRegistry.RegisterForNavigation<HomeView>("Home");
             containerRegistry.RegisterForNavigation<FunctionSelectView>("FunctionSelect");
@@ -37,6 +39,7 @@ namespace WheelsForHire
             containerRegistry.RegisterForNavigation<EquipmentSalesView>("NewSale");
             containerRegistry.RegisterForNavigation<InsuranceView>("Insurance");
             containerRegistry.RegisterForNavigation<UsersPoliciesView>("UserPolicy");
+            containerRegistry.RegisterForNavigation<ManageDepositsView>("DamageDeposits");
         }
 
         protected override Window CreateShell()
