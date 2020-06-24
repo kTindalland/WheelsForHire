@@ -21,6 +21,7 @@ namespace WheelsForHire.ViewModels
         public ICommand ToNewSaleCommand { get; set; }
         public ICommand ToInsuranceCommand { get; set; }
         public ICommand ToDamageDepositCommand { get; set; }
+        public ICommand ToManageCustomersCommand { get; set; }
 
         public FunctionSelectViewModel(IRegionManager regionManager)
         {
@@ -33,6 +34,12 @@ namespace WheelsForHire.ViewModels
             ToNewSaleCommand = new DelegateCommand(ToNewSale);
             ToInsuranceCommand = new DelegateCommand(ToInsurance);
             ToDamageDepositCommand = new DelegateCommand(ToDamageDeposits);
+            ToManageCustomersCommand = new DelegateCommand(ToManageCustomers);
+        }
+
+        private void ToManageCustomers()
+        {
+            _regionManager.RequestNavigate("MainRegion", "ManageCustomers");
         }
 
         private void ToDamageDeposits()

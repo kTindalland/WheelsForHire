@@ -40,6 +40,7 @@ namespace WheelsForHire
             containerRegistry.RegisterForNavigation<InsuranceView>("Insurance");
             containerRegistry.RegisterForNavigation<UsersPoliciesView>("UserPolicy");
             containerRegistry.RegisterForNavigation<ManageDepositsView>("DamageDeposits");
+            containerRegistry.RegisterForNavigation<ManageCustomersView>("ManageCustomers");
         }
 
         protected override Window CreateShell()

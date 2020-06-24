@@ -32,6 +32,6 @@
 
         <Button Grid.Row="3" Height="100" Margin="10" FontSize="40" Command="{Binding BackToSplashCommand}">Back to splash</Button>
 
-        <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100">Manage Customers</Button>
+        <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToManageCustomersCommand}">Manage Customers</Button>
     </Grid>
 </UserControl>
