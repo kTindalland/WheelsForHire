@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="WheelsForHire.Views.FunctionSelectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WheelsForHire.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToNewBookingCommand}">New Booking</Button>
+
+        <Button Grid.Column="1" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding AddStockCommand}">Add Stock</Button>
+
+        <Button Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToInsuranceCommand}">Insurance</Button>
+
+        <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToAdHocCommand}">Ad-hoc Queries</Button>
+
+        <Button Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToNewSaleCommand}">Equipment Sale</Button>
+
+        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToDamageDepositCommand}">Manage Deposits</Button>
+
+        <Button Grid.Row="3" Height="100" Margin="10" FontSize="40" Command="{Binding BackToSplashCommand}">Back to splash</Button>
+
+        <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="40" Height="100" Command="{Binding ToManageCustomersCommand}">Manage Customers</Button>
+    </Grid>
+</UserControl>
